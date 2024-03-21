@@ -30,25 +30,28 @@ gcloud auth application-default login
 
 ## Selecting stacks
 
-Project has two stacks, `staging` and `production`. You can switch between them with
+Project has two stacks, `staging` and `production`. They are inited with
+
+`````
+pulumi stack init staging
+pulumi stack init production
+`````
+
+You can switch between the stacks with
 
 `````
 pulumi stack select staging
 pulumi stack select production
 `````
 
-You need to run following in both stacks.
+You might need to run following in both stacks.
 
 ``````
-pulumi config set gcp:project PROJECT_ID
+pulumi config set gcp:project ig-pulumi-2024
 ``````
 
 ### Running changes
 
-
-Replace the project_id value in  `Pulumi.staging.yaml` or `Pulumi.production.yaml` with correct gcp project_id.
-
-Preview your changes
 
 ``````
 pulumi preview
