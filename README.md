@@ -48,3 +48,15 @@ Delete resources with
 ``````
 pulumi destroy
 ``````
+
+
+### Install dependencies
+
+Prerequisities: yarn
+
+
+Install all dependencies with
+
+`````
+yarn install --frozen-lockfile
+`````
