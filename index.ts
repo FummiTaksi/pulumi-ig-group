@@ -1,7 +1,11 @@
 import * as gcp from "@pulumi/gcp";
+import * as pulumi from "@pulumi/pulumi";
 
-new gcp.storage.Bucket("pulumi-ig-group-storage", {
-  name: "pulumi-ig-group-storage",
+const stack = pulumi.getStack();
+const bucketName = `pulumi-ig-group-storage-${stack}`;
+
+new gcp.storage.Bucket(bucketName, {
+  name: bucketName,
   location: "EU",
   forceDestroy: true,
   uniformBucketLevelAccess: true,
