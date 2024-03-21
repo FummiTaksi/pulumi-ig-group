@@ -10,6 +10,13 @@ cd pulumi-ig-group
 pulumi new typescript -y
 ``````
 
+## pulumi version
+
+``````
+pulumi version
+v3.99.0
+``````
+
 
 ## Running IAC changes
 
