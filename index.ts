@@ -21,29 +21,25 @@ const bucketForCloudFunctions = new gcp.storage.Bucket(
   }
 );
 
-const createCloudFunction = true;
-
-if (createCloudFunction) {
-  const archive = new gcp.storage.BucketObject("archive", {
-    name: "message.zip",
-    bucket: bucketForCloudFunctions.name,
-    source: new pulumi.asset.FileAsset("./message-cloud-function/message.zip"),
-  });
-  new gcp.cloudfunctionsv2.Function(`message-${stack}`, {
-    name: `message-${stack}`,
-    buildConfig: {
-      entryPoint: "message",
-      runtime: "nodejs18",
-      source: {
-        storageSource: {
-          bucket: bucketForCloudFunctions.name,
-          object: archive.name,
-        },
+const archive = new gcp.storage.BucketObject("archive", {
+  name: "message.zip",
+  bucket: bucketForCloudFunctions.name,
+  source: new pulumi.asset.FileAsset("./message-cloud-function/message.zip"),
+});
+new gcp.cloudfunctionsv2.Function(`message-${stack}`, {
+  name: `message-${stack}`,
+  buildConfig: {
+    entryPoint: "message",
+    runtime: "nodejs18",
+    source: {
+      storageSource: {
+        bucket: bucketForCloudFunctions.name,
+        object: archive.name,
       },
     },
-    serviceConfig: {
-      ingressSettings: "ALLOW_ALL",
-    },
-    location: "europe-west1",
-  });
-}
+  },
+  serviceConfig: {
+    ingressSettings: "ALLOW_ALL",
+  },
+  location: "europe-west1",
+});
