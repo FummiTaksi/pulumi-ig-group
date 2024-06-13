@@ -1,0 +1,16 @@
+{
+  "name": "message-cloud-function",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.3.0"
+  },
+  "scripts": {
+    "dev": "yarn build && functions-framework --target=message",
+    "build": "tsc index.ts"
+  }
+}

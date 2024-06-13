@@ -63,6 +63,8 @@ If everything looks OK, then run
 pulumi up
 ``````
 
+Then go to cloud run, and change the permissions from security ( Allow unauthenticated invocations ) so that the cloud run is accessed from anywhere for easy testing
+
 ### Deleting resources
 
 Delete resources with

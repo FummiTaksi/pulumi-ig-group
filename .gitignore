@@ -2,3 +2,4 @@
 /node_modules/
 Pulumi.staging.yaml
 Pulumi.production.yaml
+.DS_Store
